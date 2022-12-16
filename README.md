@@ -11,6 +11,10 @@ Compilers are used in a wide variety of applications, including operating system
 ## Table of Content
 1. [The steps of a compiler](#the-steps-of-a-compiler)
 2. [Lexical analysis](#lexical-analysis)
+3. [Syntax analysis](#syntax-analysis)
+4. [Semantic analysis](#semantic-analysis)
+5. [Code generation](#code-generation)
+6. [Linking](#linking)
 
 ## The steps of a compiler
 A compiler is a program that translates source code written in a programming language into machine code that can be executed on a computer. The process of compiling involves several steps:
@@ -30,7 +34,7 @@ A compiler is a program that translates source code written in a programming lan
 
 
 
-## Lexical analysis
+# Lexical analysis
 A lexical analyzer (also known as a lexer or a lexical scanner) is a program or component of a compiler that performs lexical analysis, which is the process of breaking the source code into a stream of smaller units called "tokens." These tokens represent the different elements of the programming language, such as keywords, operators, and identifiers.
 
 The lexical analyzer reads the source code one character at a time and groups the characters into tokens based on the rules of the programming language. For example, in the C programming language, the lexical analyzer might recognize the characters "i", "n", and "t" as the beginning of the keyword "int", and group them together into a single token.
@@ -117,3 +121,45 @@ This grammar defines the rules for a simple arithmetic expression language, with
 For example, the first rule states that an expression can be formed by an expression followed by a "+" operator and a term, or by just a term. The second rule states that a term can be formed by a term followed by a "\*" operator and a factor, or by just a factor. The third rule states that a factor can be an integer literal, a numeric literal, or an expression enclosed in parentheses.
 
 The terminal symbols in this grammar are the keywords "int" and "num" and the operators "+" and "\*". The non-terminal symbols are "expr", "term", and "factor".
+
+
+
+
+# Semantic analysis
+Semantic analysis is the process of checking the source code for meaning and correctness. It is typically the third phase of the compilation process, following lexical analysis and syntax analysis.
+
+During semantic analysis, the compiler checks the source code for errors that cannot be detected during the earlier phases of compilation. These errors might include things like using an undeclared variable, calling a function with the wrong number of arguments, or assigning a value of the wrong type to a variable.
+
+The compiler also performs tasks such as type checking, which involves ensuring that the types of values and expressions are correct and compatible with each other. For example, if a variable is declared as an integer, the compiler will check that it is not assigned a floating-point value or a string.
+
+Another important task of semantic analysis is to resolve symbols, which means to determine the meaning and location of identifiers in the source code. This involves looking up the definitions of variables, functions, and other symbols in the symbol table, which is a data structure that stores information about the symbols used in the program.
+
+Semantic analysis is an important step in the compilation process because it helps to ensure that the source code is correct and meaningful. If the compiler detects any errors during semantic analysis, it will generate an error message indicating the location and nature of the problem.
+
+Here is a simple example of how a semantic analyzer might work:
+
+Consider the following source code:
+```cs
+int x = 5;
+int y = "hello";
+int z = x + y;
+```
+During the lexical analysis phase, the compiler would identify the tokens in the source code and assign them types such as "keyword" or "identifier".
+
+During the syntax analysis phase, the compiler would construct an abstract syntax tree (AST) that reflects the structure of the source code. The AST for the example code might look like this:
+```cs
+    =
+   / \
+  x   +
+     / \
+    5   "hello"
+```
+During the semantic analysis phase, the compiler would check the AST for errors and perform tasks such as type checking. In this case, it would detect that the assignment of the string "hello" to the integer variable y is invalid, and it would also detect that the addition of an integer and a string is not allowed.
+
+The compiler would then generate error messages indicating the location and nature of the problems. In this case, it might output something like:
+```cs
+Error: Cannot assign string to int variable
+    at line 2, column 10
+Error: Cannot add int and string
+    at line 3, column 8
+```
