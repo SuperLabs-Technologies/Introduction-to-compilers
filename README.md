@@ -1,4 +1,6 @@
 # Introduction to compilers
+> This entire document is written by ChatGPT and later fact checked and formatted by developers!
+
 A compiler is a type of software that translates source code written in a programming language into machine code that can be executed on a computer. Compilers are an essential part of the software development process, as they allow developers to write code in a high-level programming language that is easier for humans to read and understand, and then convert it into a form that can be understood and run by a computer.
 
 The process of compiling involves several steps, including lexical analysis (breaking the source code into smaller units called "tokens"), syntax analysis (checking the code for grammatical errors), semantic analysis (checking the code for logical errors), code generation (converting the source code into machine code), optimization (improving the efficiency and performance of the generated code), and linking (combining the generated code with other code libraries or object files).
@@ -220,3 +222,35 @@ main:
 ```
 
 This machine code consists of assembly language instructions that can be executed by the computer. The instructions load the values 5 and 10 into registers `eax` and `ebx`, respectively, add the values in `eax` and `ebx`, and return the result.
+
+
+
+
+# Linking
+Linking is the process of combining the machine code of multiple compiled modules into a single executable program or library. It is typically the final step in the compilation process, following lexical analysis, syntax analysis, semantic analysis, and code generation.
+
+During linking, the linker resolves external references in the compiled modules and combines the machine code into a single executable file. The linker also performs tasks such as:
+
+* Allocating memory for global variables and data structures
+* Relocating code and data to their final addresses
+* Resolving symbols and linking them to their definitions
+* Generating tables and structures for managing the program's execution
+* The linker uses a symbol table, which is a data structure that stores information about the symbols used in the program. The symbol table includes information such as the type and location of each symbol, as well as the modules in which they are defined.
+
+### Symbol table
+A symbol table is a data structure used by a linker to store the symbols defined in object files and libraries. It is used to resolve symbols (e.g., function and variable names) used in the program being linked.
+
+Here is a simple example of a symbol table:
+
+|Symbol|Type|Value
+|--|--|--|
+|main|func|0x10000|
+|printf|func|0x10100|
+|x|var|0x20000|
+|y|var|0x20004|
+
+In this example, the symbol table contains four symbols: "main", "printf", "x", and "y". The "Type" column indicates whether the symbol is a function (func) or a variable (var). The "Value" column specifies the address at which the symbol is defined in the program's memory.
+
+During the linking process, the linker uses the symbol table to resolve symbols used in the program. For example, if the program contains a call to the "printf" function, the linker will look up the symbol "printf" in the symbol table and use its value (0x10100 in this case) to determine the correct address of the function in the program's memory.
+
+Linking is an important step in the compilation process because it allows the compiled modules to be combined into a single executable program that can be run on a computer. Without linking, the compiled modules would remain as separate object files that are not directly executable.
