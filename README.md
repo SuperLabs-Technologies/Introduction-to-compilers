@@ -163,3 +163,60 @@ Error: Cannot assign string to int variable
 Error: Cannot add int and string
     at line 3, column 8
 ```
+
+
+
+
+
+# Code generation
+Code generation is the process of generating machine code from the source code of a program. It is typically the final phase of the compilation process, following lexical analysis, syntax analysis, and semantic analysis.
+
+During code generation, the compiler translates the intermediate representation of the source code, such as the abstract syntax tree (AST) or three-address code, into machine code that can be executed by the computer. The machine code is typically in the form of assembly language or machine language, which are low-level languages that are specific to the architecture of the target machine.
+
+Code generation involves several tasks, such as:
+
+* Allocating memory for variables and data structures
+* Generating instructions for manipulating data and control flow
+* Generating calls to functions and handling function calls and returns
+* Generating code to handle exceptions and error conditions
+* The compiler uses a code generator, which is a component that is responsible for generating the machine code. The code generator typically uses a variety of techniques and algorithms to optimize the machine code for performance and size.
+
+Code generation is an important step in the compilation process because it allows the source code to be executed on a computer. Without code generation, the source code would remain in a high-level language that is not directly executable.
+
+Here is a simple example of how a code generator might work:
+
+Consider the following source code written in a high-level language called HLL:
+
+```cs
+int main() {
+  int x = 5;
+  int y = 10;
+  return x + y;
+}
+```
+
+During the lexical analysis phase, the compiler would identify the tokens in the source code and assign them types such as "keyword" or "identifier".
+
+During the syntax analysis phase, the compiler would construct an abstract syntax tree (AST) that reflects the structure of the source code. The AST for the example code might look like this:
+
+```cs
+  return
+       \
+        +
+       / \
+      x   y
+```
+
+During the semantic analysis phase, the compiler would check the AST for errors and perform tasks such as type checking. Assuming there are no errors, the compiler would then proceed to the code generation phase.
+
+The code generator would generate machine code for the target architecture based on the AST and the target architecture's instruction set. For example, the generated code might look like this:
+
+```asm
+main:
+  mov eax, 5
+  mov ebx, 10
+  add eax, ebx
+  ret
+```
+
+This machine code consists of assembly language instructions that can be executed by the computer. The instructions load the values 5 and 10 into registers `eax` and `ebx`, respectively, add the values in `eax` and `ebx`, and return the result.
