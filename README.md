@@ -23,7 +23,7 @@ A compiler is a program that translates source code written in a programming lan
 
 1. Lexical analysis: The compiler breaks the source code into small pieces called "tokens," which represent the different elements of the programming language (such as variables, operators, and keywords).
 
-2. Syntax analysis: The compiler checks the source code for grammatical errors, ensuring that it is written in a valid and correct format.
+2. Syntax analysis: The compiler checks the source for grammatical errors, then converts it into an AST (Abstract Syntax Tree)
 
 3. Semantic analysis: The compiler checks the source code for logical errors, ensuring that it makes sense and follows the rules of the programming language.
 
