@@ -68,11 +68,11 @@ public struct Token
 
 public enum TokenType
 {
-    Keyword,
-    Identifier,
-    Operator,
-    Literal,
-    Punctuation
+    Keyword, // 'var', 'public', 'class'
+    Identifier, // 'program', 'helloworld', 'variable1'
+    Operator, // '+', '-', '*', '/'
+    Literal, // '123', '"Hello"', 'true'
+    Punctuation // '{', '}', '.',
 }
 ```
 In this example, the `Token` struct has two fields: `Type`, which indicates the type of the token (such as a keyword or identifier), and `Value`, which stores the actual value of the token as a string. The `TokenType` enum defines the different types of tokens that can be represented by the `Token` struct.
