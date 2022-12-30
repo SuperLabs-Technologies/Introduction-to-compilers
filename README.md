@@ -37,6 +37,8 @@ A compiler is a program that translates source code written in a programming lan
 
 
 # Lexical analysis
+``Lexer.cs``
+
 A lexical analyzer (also known as a lexer or a lexical scanner) is a program or component of a compiler that performs lexical analysis, which is the process of breaking the source code into a stream of smaller units called "tokens." These tokens represent the different elements of the programming language, such as keywords, operators, and identifiers.
 
 The lexical analyzer reads the source code one character at a time and groups the characters into tokens based on the rules of the programming language. For example, in the C programming language, the lexical analyzer might recognize the characters "i", "n", and "t" as the beginning of the keyword "int", and group them together into a single token.
@@ -88,6 +90,8 @@ This code creates a new `Token` struct and sets its `Type` field to `TokenType.K
 
 
 # Syntax analysis
+``Parser.cs``
+
 Syntax analysis, also known as parsing, is the process of checking the source code for grammatical errors and ensuring that it is written in a valid and correct format. Syntax analysis is typically the second phase of the compilation process, following lexical analysis.
 
 During syntax analysis, the compiler constructs a tree-like representation of the source code called an "abstract syntax tree" (AST). The AST reflects the structure of the code and shows how the different elements (such as variables, functions, and control structures) are related to each other.
@@ -128,6 +132,8 @@ The terminal symbols in this grammar are the keywords "int" and "num" and the op
 
 
 # Semantic analysis
+``SemanticAnalyzer.cs``
+
 Semantic analysis is the process of checking the source code for meaning and correctness. It is typically the third phase of the compilation process, following lexical analysis and syntax analysis.
 
 During semantic analysis, the compiler checks the source code for errors that cannot be detected during the earlier phases of compilation. These errors might include things like using an undeclared variable, calling a function with the wrong number of arguments, or assigning a value of the wrong type to a variable.
@@ -171,6 +177,8 @@ Error: Cannot add int and string
 
 
 # Code generation
+``CodeGen.cs``
+
 Code generation is the process of generating machine code from the source code of a program. It is typically the final phase of the compilation process, following lexical analysis, syntax analysis, and semantic analysis.
 
 During code generation, the compiler translates the intermediate representation of the source code, such as the abstract syntax tree (AST) or three-address code, into machine code that can be executed by the computer. The machine code is typically in the form of assembly language or machine language, which are low-level languages that are specific to the architecture of the target machine.
@@ -227,6 +235,8 @@ This machine code consists of assembly language instructions that can be execute
 
 
 # Linking
+``Linker.cs``
+
 Linking is the process of combining the machine code of multiple compiled modules into a single executable program or library. It is typically the final step in the compilation process, following lexical analysis, syntax analysis, semantic analysis, and code generation.
 
 During linking, the linker resolves external references in the compiled modules and combines the machine code into a single executable file. The linker also performs tasks such as:
